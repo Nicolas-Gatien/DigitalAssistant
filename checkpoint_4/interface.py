@@ -65,7 +65,7 @@ assistant = Assistant("config/api_keys.json", declared_skills)
 
 while True:
     declared_skills = load_skills_from_folder()
-    assistant.reload_skills(declared_skills)
+    assistant.known_skills = assistant.reload_skills(declared_skills)
 
     audio = listen()
     user_sentence = audio_to_text(audio)

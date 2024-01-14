@@ -21,8 +21,8 @@ from skills.basic_skill import BasicSkill
 {import any other libraries}
 class {name of the new skill}Skill (BasicSkill):
    def __init__(self):
-      self.name = {skill name}
-      self.metatada = {
+      self.name = {SkillName (no spaces)}
+      self.metadata = {
          \"name\": self.name,
          \"description\": \"{a description of the skill that describes when it should be used and what it does}\",
          \"parameters\": {
@@ -42,9 +42,9 @@ class {name of the new skill}Skill (BasicSkill):
       }
       super().__init__(name=self.name, metadata=self.metadata)
 
-   def perform(self, {parameters}):
+   def perform(self, {parameter_1}, {parameter_2}):
       {skill functionality}
-      return {string that describes the result of the function}
+      return {A STRING that describes the result of the function, NOT A DICTIONARY. Output a STRING}
 ]]]
 """
                     }
@@ -55,7 +55,7 @@ class {name of the new skill}Skill (BasicSkill):
         super().__init__(name=self.name, metadata=self.metadata)
 
     def perform(self, skill_name, python_implementation):
-        file_name = f"{skill_name}.py"
+        file_name = f"skills/{skill_name}.py"
         try:
             with open(file_name, 'w') as file:
                 file.write(python_implementation)
